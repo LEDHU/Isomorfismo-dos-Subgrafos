@@ -1,15 +1,13 @@
-/**
- * A classe App é a aplicação principal que demonstra a utilização do algoritmo genético para encontrar
- * um subgrafo isomórfico entre dois grafos: um grafo maior (grafoMaior) e um grafo menor (grafoMenor).
- * A aplicação cria os grafos, imprime suas representações e, em seguida, utiliza o algoritmo genético para
- * encontrar o subgrafo isomórfico. Por fim, verifica se o subgrafo é isomórfico ao grafo menor.
- */
 public class App {
 
     public static void main(String[] args) {
-        // Isomorfo
-        // Criar grafo maior
+
         Grafo G = new Grafo(5);
+        Grafo H = new Grafo(3);
+        Grafo I = new Grafo(5);
+        Grafo J = new Grafo(3);
+
+        // Isomorfo
         G.adicionarAresta(0, 1);
         G.adicionarAresta(1, 2);
         G.adicionarAresta(1, 3);
@@ -19,8 +17,7 @@ public class App {
         System.out.println("Grafo G:");
         G.imprimirGrafo();
 
-        // Criar grafo menor
-        Grafo H = new Grafo(4);
+
         H.adicionarAresta(2, 1);
         H.adicionarAresta(3, 2);
         H.adicionarAresta(1, 3);
@@ -28,7 +25,6 @@ public class App {
         H.imprimirGrafo();
 
         // Não iso
-        Grafo I = new Grafo(5);
         I.adicionarAresta(0, 1);
         I.adicionarAresta(1, 2);
         I.adicionarAresta(1, 3);
@@ -38,7 +34,7 @@ public class App {
         System.out.println("\nGrafo I:");
         I.imprimirGrafo();
 
-        Grafo J = new Grafo(3);
+
         J.adicionarAresta(2, 1);
         J.adicionarAresta(0, 2);
         J.adicionarAresta(1, 0);
@@ -60,15 +56,8 @@ public class App {
 
     }
 
-    /**
-     * Verifica se o subgrafo é isomorfo ao grafo menor.
-     *
-     * @param A Grafo menor que representa o subgrafo a ser encontrado.
-     * @param subgrafo Grafo a ser verificado quanto ao isomorfismo com o grafo menor.
-     * @return true se o subgrafo é isomórfico ao grafo menor, false caso contrário.
-     */
-    private static boolean verificarIsomorfismo(Grafo A, Grafo subgrafo) {
-        return A.isSubgrafo(subgrafo) && subgrafo.isSubgrafo(A);
+    private static boolean verificarIsomorfismo(Grafo H, Grafo subgrafo) {
+        return H.isSubgrafo(subgrafo) && subgrafo.isSubgrafo(H);
     }
 
 }
