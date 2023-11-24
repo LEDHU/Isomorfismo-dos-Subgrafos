@@ -1,30 +1,24 @@
 public class App {
 
     public static void main(String[] args) {
-
-        Grafo G = new Grafo(5);
-        Grafo H = new Grafo(3);
-        Grafo I = new Grafo(5);
-        Grafo J = new Grafo(3);
-
         // Isomorfo
+        Grafo G = new Grafo(3);
         G.adicionarAresta(0, 1);
+        G.adicionarAresta(0, 2);
         G.adicionarAresta(1, 2);
-        G.adicionarAresta(1, 3);
-        G.adicionarAresta(2, 4);
-        G.adicionarAresta(3, 2);
-        G.adicionarAresta(3, 4);
+
         System.out.println("Grafo G:");
         G.imprimirGrafo();
 
-
-        H.adicionarAresta(2, 1);
-        H.adicionarAresta(3, 2);
-        H.adicionarAresta(1, 3);
+        Grafo H = new Grafo(3);
+        H.adicionarAresta(0, 1);
+        H.adicionarAresta(0, 2);
+        H.adicionarAresta(1, 2);
         System.out.println("\nGrafo H:");
         H.imprimirGrafo();
 
         // Não iso
+        Grafo I = new Grafo(5);
         I.adicionarAresta(0, 1);
         I.adicionarAresta(1, 2);
         I.adicionarAresta(1, 3);
@@ -34,10 +28,10 @@ public class App {
         System.out.println("\nGrafo I:");
         I.imprimirGrafo();
 
-
-        J.adicionarAresta(2, 1);
+        Grafo J = new Grafo(3);
+        J.adicionarAresta(0, 1);
         J.adicionarAresta(0, 2);
-        J.adicionarAresta(1, 0);
+        J.adicionarAresta(1, 2);
         System.out.println("\nGrafo J:");
         J.imprimirGrafo();
 

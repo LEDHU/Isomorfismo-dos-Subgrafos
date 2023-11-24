@@ -30,7 +30,6 @@ public class Grafo {
     }
 
     public List<Integer> getVizinhos(int vertice) {
-        // Retorna a lista de vizinhos do vértice fornecido
         return adjacencias.get(vertice);
     }
 

@@ -3,7 +3,6 @@ import java.util.List;
 import java.util.Random;
 
 public class AlgoritmoGenetico {
-
     private static final int TAMANHO_POPULACAO = 50;
     private static final double TAXA_MUTACAO   = 0.1;
     private static final int NUMERO_GERACOES   = 2;
@@ -19,8 +18,10 @@ public class AlgoritmoGenetico {
 
     private static List<Grafo> gerarPopulacaoInicial(Grafo G, Grafo H) {
         List<Grafo> populacao = new ArrayList<>();
+
         for (int i = 0; i < TAMANHO_POPULACAO; i++)
             populacao.add(gerarIndividuoAleatorio(H));
+
         return populacao;
     }
 
@@ -42,33 +43,34 @@ public class AlgoritmoGenetico {
             Grafo pai1  = selecionarPai(populacao, G, H);
             Grafo pai2  = selecionarPai(populacao, G, H);
             Grafo filho = crossover(pai1, pai2);
-
             mutacao(filho);
             novaPopulacao.add(filho);
         }
-
         return novaPopulacao;
     }
 
     private static Grafo selecionarPai(List<Grafo> populacao, Grafo G, Grafo H) {
         Grafo pai = populacao.get(new Random().nextInt(TAMANHO_POPULACAO));
         Grafo melhorIndividuo = encontrarMelhorIndividuo(populacao, G, H);
-
-        if (new Random().nextDouble() < 0.7) pai = melhorIndividuo;
+        if (new Random().nextDouble() < 0.1) pai = melhorIndividuo;
         return pai;
     }
 
     private static Grafo crossover(Grafo pai1, Grafo pai2) {
         Grafo filho = new Grafo(pai1.getVertices());
         Random random = new Random();
+
         for (Aresta aresta : pai1.getArestas()) {
             if (random.nextBoolean())
-                filho.adicionarAresta(aresta.getOrigem(), aresta.getDestino()); // Adiciona a aresta ao filho
+                filho.adicionarAresta(aresta.getOrigem(), aresta.getDestino());
         }
+
         for (Aresta aresta : pai2.getArestas()) {
+
             if (!filho.getArestas().contains(aresta) && random.nextBoolean())
-                filho.adicionarAresta(aresta.getOrigem(), aresta.getDestino()); // Adiciona a aresta ao filho
+                filho.adicionarAresta(aresta.getOrigem(), aresta.getDestino());
         }
+
         return filho;
     }
 
@@ -83,6 +85,7 @@ public class AlgoritmoGenetico {
     private static Grafo encontrarMelhorIndividuo(List<Grafo> populacao, Grafo G, Grafo H) {
         Grafo melhorIndividuo = populacao.get(0);
         int melhorScore = calcularScore(melhorIndividuo, G, H);
+
         for (Grafo individuo : populacao) {
             int scoreAtual = calcularScore(individuo, G, H);
             if (scoreAtual > melhorScore) {
