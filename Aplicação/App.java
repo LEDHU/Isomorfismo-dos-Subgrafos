@@ -2,18 +2,21 @@ public class App {
 
     public static void main(String[] args) {
         // Isomorfo
-        Grafo G = new Grafo(3);
+        Grafo G = new Grafo(5);
         G.adicionarAresta(0, 1);
         G.adicionarAresta(0, 2);
         G.adicionarAresta(1, 2);
+        G.adicionarAresta(1, 3);
+        G.adicionarAresta(2, 4);
+        G.adicionarAresta(3, 4);
 
         System.out.println("Grafo G:");
         G.imprimirGrafo();
 
-        Grafo H = new Grafo(3);
+        Grafo H = new Grafo(4);
         H.adicionarAresta(0, 1);
         H.adicionarAresta(0, 2);
-        H.adicionarAresta(1, 2);
+        H.adicionarAresta(1,3);
         System.out.println("\nGrafo H:");
         H.imprimirGrafo();
 

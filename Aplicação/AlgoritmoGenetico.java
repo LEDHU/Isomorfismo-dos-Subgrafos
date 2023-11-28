@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.Random;
 
 public class AlgoritmoGenetico {
-    private static final int TAMANHO_POPULACAO = 50;
+    private static final int TAMANHO_POPULACAO = 1000;
     private static final double TAXA_MUTACAO   = 0.1;
     private static final int NUMERO_GERACOES   = 2;
 
